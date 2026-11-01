@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr White Survival - PC Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Botón de Pausa -->
+    <div id="ui-pause-btn" class="hidden">
+        <button id="btn-pause" title="Pausa (ESC)">⏸ PAUSA</button>
+    </div>
+
+    <!-- Menú Principal -->
+    <div id="menu-main" class="overlay">
+        <h1 class="title">MR. WHITE<br>SURVIVAL</h1>
+        <p class="subtitle">PC EDITION — v1.0</p>
+        <button id="btn-play">▶ JUGAR</button>
+        <button id="btn-growing" class="btn-purple">🧬 Growing</button>
+        <button id="btn-best">★ Mejores Puntajes</button>
+        <button id="btn-fullscreen">⛶ Pantalla Completa [F11]</button>
+        <p class="controls-hint">WASD para moverte • Usa el mouse para apuntar • ESPACIO para disparar</p>
+        
+        <div id="scores-container" class="hidden">
+            <h2>TOP 5</h2>
+            <ol id="scores-list"></ol>
+            <button id="btn-close-scores">Volver</button>
+        </div>
+    </div>
+
+    <!-- Menú de Selección de Personaje -->
+    <div id="char-select" class="overlay hidden">
+        <h1 id="char-select-title" class="title" style="font-size: 2.2rem;">ELIGE TU PERSONAJE</h1>
+        <p style="color:#aaa; margin-bottom: 25px;">Haz click para seleccionar</p>
+        <div class="char-grid">
+            <div id="char-walter" class="char-card">
+                <div class="sprite-anim sprite-walter"></div>
+                <h3>Mr. White</h3>
+                <p class="char-desc">Equilibrado</p>
+            </div>
+            <div id="char-gus" class="char-card">
+                <div class="sprite-anim sprite-gus"></div>
+                <h3>Gus Fring</h3>
+                <p class="char-desc">Estratega</p>
+            </div>
+            <div id="char-jesse" class="char-card">
+                <div class="sprite-anim sprite-jesse"></div>
+                <h3>Jesse Pinkman</h3>
+                <p class="char-desc">Ágil</p>
+            </div>
+            <div id="char-mike" class="char-card">
+                <div class="sprite-anim sprite-mike"></div>
+                <h3>Mike Ehrmantraut</h3>
+                <p class="char-desc">Táctico</p>
+            </div>
+            <!-- --------------------------------------- -->                                
+        </div>
+        <button id="btn-back-char" class="btn-red">← Atrás</button>
+        <p class="controls-hint">💡 En PC: apunta con el mouse y dispara con ESPACIO (mantén o pulsa repetido)</p>
+    </div>
+
+    <!-- Menú Árbol de Mejoras (Growing) -->
+    <div id="growing-menu" class="overlay hidden" style="justify-content: flex-start; overflow-y: auto; padding-top: 30px;">
+        <h1 class="title" style="font-size: 2.2rem; margin-bottom: 10px;">ÁRBOL DE MEJORAS</h1>
+        <p id="growing-points" style="color: #f1c40f; font-size: 1.4rem; margin-bottom: 20px; font-weight: bold;"></p>
+        <div id="growing-list" style="width: 90%; max-width: 650px; display: flex; flex-direction: column; gap: 15px;">
+            <!-- Habilidades inyectadas por JS -->
+        </div>
+        <button id="btn-back-growing" class="btn-red" style="margin: 30px 0;">← Volver al Menú</button>
+    </div>
+
+    <!-- Menú de Pausa -->
+    <div id="menu-pause" class="overlay hidden">
+        <h1 class="title">PAUSA</h1>
+        <div class="stats-box">
+            <p id="pause-wave">Oleada: 1</p>
+            <p id="pause-time">Tiempo restante: 60s</p>
+            <p id="pause-score">Puntos: 0</p>
+            <br>
+            <div id="rpg-stats-container">
+                <!-- Se inyectan las stats por JS -->
+            </div>
+        </div>
+        <button id="btn-resume">▶ Reanudar [ESC]</button>
+        <button id="btn-quit" class="btn-red">✕ Terminar y Salir</button>
+        <p class="controls-hint">Presiona ESC para reanudar</p>
+    </div>
+
+    <!-- Menú de Subida de Nivel -->
+    <div id="menu-levelup" class="overlay hidden">
+        <h1 class="title" style="font-size: 2rem; color: #f1c40f;">¡SUBISTE DE NIVEL!</h1>
+        <p style="margin-bottom: 20px; color: #ccc;">Elige una mejora:</p>
+        <div id="upgrades-container" style="display: flex; flex-direction: column; gap: 12px; width: 85%; max-width: 500px;">
+            <!-- Opciones generadas por código -->
+        </div>
+        <p class="controls-hint">Haz click en la carta que quieres</p>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4d9aa380c3bccde',t:'MTc5MjUxNjUyOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
